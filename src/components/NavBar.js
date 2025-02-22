@@ -7,6 +7,7 @@ import { Link } from "react-scroll";
 
 export const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(null);
 
   useEffect(() => {
@@ -24,16 +25,11 @@ export const NavBar = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const sectionId = entry.target.id;
-
-            if (sectionId === "connect") {
-              setActiveSection(null); // No navbar highlight when on "Get in Touch"
-            } else {
-              setActiveSection(sectionId);
-            }
+            setActiveSection(sectionId === "connect" ? null : sectionId);
           }
         });
       },
-      { threshold: 0.6 } // Adjust for better section detection
+      { threshold: 0.6 }
     );
 
     document.querySelectorAll("section").forEach((section) => observer.observe(section));
@@ -44,7 +40,13 @@ export const NavBar = () => {
   }, []);
 
   return (
-    <Navbar expand="md" className={scrolled ? "scrolled" : ""} fixed="top">
+    <Navbar
+      expand="md"
+      expanded={menuOpen} // ✅ Use expanded prop to track menu state
+      onToggle={() => setMenuOpen(!menuOpen)} // ✅ Proper way to track menu toggle
+      className={`${scrolled || menuOpen ? "scrolled menu-open" : ""}`} 
+      fixed="top"
+    >
       <Container>
         <Navbar.Brand href="/">
           <img src={logo} alt="Logo" />
@@ -56,52 +58,40 @@ export const NavBar = () => {
           <Nav className="ms-auto">
             <Nav.Item>
               <Link
-                activeClass="active"
                 to="home"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
                 className={activeSection === "home" ? "nav-link navbar-link active" : "nav-link navbar-link"}
+                spy smooth offset={-70} duration={500}
+                onClick={() => setMenuOpen(false)} // ✅ Close menu when clicked
               >
                 Home
               </Link>
             </Nav.Item>
             <Nav.Item>
               <Link
-                activeClass="active"
                 to="skills"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
                 className={activeSection === "skills" ? "nav-link navbar-link active" : "nav-link navbar-link"}
+                spy smooth offset={-70} duration={500}
+                onClick={() => setMenuOpen(false)} // ✅ Close menu when clicked
               >
                 Skills
               </Link>
             </Nav.Item>
             <Nav.Item>
               <Link
-                activeClass="active"
                 to="projects"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
                 className={activeSection === "projects" ? "nav-link navbar-link active" : "nav-link navbar-link"}
+                spy smooth offset={-70} duration={500}
+                onClick={() => setMenuOpen(false)} // ✅ Close menu when clicked
               >
                 Projects
               </Link>
             </Nav.Item>
             <Nav.Item>
               <Link
-                activeClass="active"
                 to="achievements"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
                 className={activeSection === "achievements" ? "nav-link navbar-link active" : "nav-link navbar-link"}
+                spy smooth offset={-70} duration={500}
+                onClick={() => setMenuOpen(false)} // ✅ Close menu when clicked
               >
                 Achievements
               </Link>
@@ -116,13 +106,14 @@ export const NavBar = () => {
                 <img src={navIcon2} alt="GitHub" />
               </a>
             </div>
-            <Link
-              to="connect"
-              spy={true}
-              smooth={true}
-              offset={-70}
+            <Link 
+              to="connect" 
+              className={activeSection === "connect" ? "vvd active" : "vvd"} 
+              spy 
+              smooth 
+              offset={-70} 
               duration={500}
-              className={activeSection === "connect" ? "vvd active" : "vvd"}
+              onClick={() => setMenuOpen(false)} // ✅ Close menu when clicked
             >
               <button><span>Let’s Connect</span></button>
             </Link>

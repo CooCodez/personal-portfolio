@@ -82,17 +82,41 @@ p.danger {
 	color: red;
 }
 /************ Navbar Css ************/
+/* Default Navbar (Transparent at the top) */
 nav.navbar {
-  padding: 18px 0;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 9999;
-  transition:  0.32s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  padding: 18px 0;
 }
+
+/* Navbar when scrolled (Black Background) */
 nav.navbar.scrolled {
   background-color: #121212;
+  padding: 0px 0;
 }
+
+/* ✅ Keep Navbar Black When Menu is Open */
+@media (max-width: 768px) {
+  nav.navbar.menu-open {
+    background-color: #121212 !important; /* Fully Black */
+  }
+
+  /* ✅ Ensure the entire menu background stays black */
+  nav.navbar.menu-open .navbar-collapse {
+    background-color: #121212 !important;
+    padding: 10px;
+    border-radius: 0;
+  }
+
+  /* ✅ Ensure that toggler stays visible */
+  nav.navbar.menu-open .navbar-toggler {
+    background-color: transparent;
+  }
+}
+
 nav.navbar a.navbar-brand {
     width: 9%;
 }
