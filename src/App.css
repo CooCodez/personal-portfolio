@@ -90,6 +90,7 @@ nav.navbar {
   z-index: 9999;
   transition: background-color 0.3s ease-in-out;
   padding: 18px 0;
+  background-color: transparent;
 }
 
 /* Navbar when scrolled (Black Background) */
