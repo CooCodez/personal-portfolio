@@ -796,7 +796,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .finisher-header {
   min-height: 110vh !important; /* or however tall you want */
-  /* background-color: #AA367C; */
+  
 }
+
+
 
 
