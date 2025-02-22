@@ -11,11 +11,12 @@ app.use(express.json());
 
 // ✅ Fix CORS Preflight Issues
 const corsOptions = {
-  origin: "http://localhost:3000", // Allow frontend
-  methods: ["GET", "POST", "OPTIONS"], // Allow POST and OPTIONS
+  origin: ["https://mark-loya.web.app", "http://localhost:3000"], // ✅ Allow Firebase + Localhost
+  methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type"],
   credentials: true,
 };
+
 
 app.use(cors(corsOptions));
 
