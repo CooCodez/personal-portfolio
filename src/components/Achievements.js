@@ -1,7 +1,6 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import colorSharp2 from "../assets/img/color-sharp2.png";
 import { CertCard } from "./CertCard"; 
 import projImg7 from "../assets/img/project-img7.jpg"; // WGU Degree
 import projImg8 from "../assets/img/project-img8.jpg"; // Fresno State Degree
@@ -111,7 +110,6 @@ export const Achievements = () => {
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2} alt="Background effect" />
     </section>
   );
 };
