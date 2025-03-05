@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/meeting.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import emailjs from "@emailjs/browser";
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -28,24 +29,26 @@ export const Contact = () => {
     e.preventDefault();
     setButtonText("Sending...");
 
+    const templateParams = {
+      firstName: formDetails.firstName,
+      lastName: formDetails.lastName,
+      email: formDetails.email,
+      phone: formDetails.phone,
+      message: formDetails.message,
+    };
+
     try {
-      let response = await fetch("https://personal-portfolio-09m9.onrender.com/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formDetails),
-      });
+      const response = await emailjs.send(
+        "service_3g68f26",   // Replace with your EmailJS Service ID
+        "template_jeg2hzj",  // Replace with your EmailJS Template ID
+        templateParams,
+        "-OcQRJneyZy4YIhYk"    // Replace with your EmailJS Public Key
+      );
 
-      if (!response.ok) {
-        throw new Error("Failed to send email");
-      }
-
-      let result = await response.json();
       setButtonText("Send");
       setFormDetails(formInitialDetails);
 
-      if (result.code === 200) {
+      if (response.status === 200) {
         setStatus({ success: true, message: "✅ Message sent successfully!" });
       } else {
         setStatus({ success: false, message: "❌ Something went wrong, please try again later." });
