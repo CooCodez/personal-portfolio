@@ -11,21 +11,6 @@ import projImg12 from "../assets/img/WGU-Certificate-Front-End-Developer.png";
 import projImg13 from "../assets/img/WGU-Back-End-Developer.png";
 
 export const Achievements = () => {
-  const degrees = [
-    { 
-      title: "Bachelor’s Degree in Software Engineering", 
-      description: "Western Governors University (WGU)", 
-      year: "2025",
-      imgUrl: projImg7 
-    },
-    { 
-      title: "Bachelor of Arts in Liberal Studies", 
-      description: "California State University, Fresno", 
-      year: "2019",
-      imgUrl: projImg8 
-    }
-  ];
-
   const certifications = [
     { 
       title: "CompTIA Project+", 
@@ -59,6 +44,21 @@ export const Achievements = () => {
     }
   ];
 
+  const degrees = [
+    { 
+      title: "Bachelor’s Degree in Software Engineering", 
+      description: "Western Governors University (WGU)", 
+      year: "2025",
+      imgUrl: projImg7 
+    },
+    { 
+      title: "Bachelor of Arts in Liberal Studies", 
+      description: "California State University, Fresno", 
+      year: "2019",
+      imgUrl: projImg8 
+    }
+  ];
+
   return (
     <section className="project" id="achievements"> 
       <Container>
@@ -73,34 +73,35 @@ export const Achievements = () => {
                     validate my skills and expertise in software engineering and education.
                   </p>
 
-                  {/* Tabs for Degrees & Certifications */}
-                  <Tab.Container id="achievements-tabs" defaultActiveKey="degrees">
+                  {/* Tabs for Certifications & Degrees (Order Switched) */}
+                  <Tab.Container id="achievements-tabs" defaultActiveKey="certifications">
                     <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center">
                       <Nav.Item>
-                        <Nav.Link eventKey="degrees">Degrees</Nav.Link>
+                        <Nav.Link eventKey="certifications">Certifications</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="certifications">Certifications</Nav.Link>
+                        <Nav.Link eventKey="degrees">Degrees</Nav.Link>
                       </Nav.Item>
                     </Nav>
 
                     <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                      {/* Degrees Tab */}
-                      <Tab.Pane eventKey="degrees">
-                    <Row className="justify-content-center">
-                      {degrees.map((degree, index) => (
-                        <CertCard key={index} {...degree} />
-                      ))}
-                    </Row>
-                  </Tab.Pane>
+                      {/* Certifications Tab (Now First) */}
+                      <Tab.Pane eventKey="certifications">
+                        <Row className="justify-content-center">
+                          {certifications.map((cert, index) => (
+                            <CertCard key={index} {...cert} />
+                          ))}
+                        </Row>
+                      </Tab.Pane>
 
-                  <Tab.Pane eventKey="certifications">
-                  <Row className="justify-content-center"> {/* Add g-4 for spacing */}
-                    {certifications.map((cert, index) => (
-                      <CertCard key={index} {...cert} />
-                    ))}
-                  </Row>
-                </Tab.Pane>
+                      {/* Degrees Tab (Now Second) */}
+                      <Tab.Pane eventKey="degrees">
+                        <Row className="justify-content-center">
+                          {degrees.map((degree, index) => (
+                            <CertCard key={index} {...degree} />
+                          ))}
+                        </Row>
+                      </Tab.Pane>
 
                     </Tab.Content>
                   </Tab.Container>
