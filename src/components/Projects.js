@@ -47,7 +47,7 @@ export const Projects = () => {
       title: "React Portfolio Website",
       description: "Modern, fully responsive portfolio built with React, React-Bootstrap, and Animate.css.",
       imgUrl: projImg6, 
-      liveLink: "https://your-portfolio-link.com", 
+      liveLink: "https://mark-loya.web.app/", 
     },
   ];
 

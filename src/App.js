@@ -8,9 +8,11 @@ import { Projects } from "./components/Projects";
 import { Achievements } from "./components/Achievements";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     // Wrap FinisherHeader in a function
     const initFinisher = () => {
@@ -44,27 +46,46 @@ function App() {
       });
     };
 
-    // If the page is already fully loaded, init Finisher immediately
+    // Function to hide loading screen
+    const hideLoader = () => {
+      setLoading(false);
+    };
+
+    // If the page is already fully loaded, init Finisher and hide loader immediately
     if (document.readyState === 'complete') {
       initFinisher();
+      hideLoader();
     } else {
       // Otherwise, wait for the load event
-      window.addEventListener('load', initFinisher);
-      return () => window.removeEventListener('load', initFinisher);
+      window.addEventListener('load', () => {
+        initFinisher();
+        // Add a small delay to ensure smooth transition
+        setTimeout(hideLoader, 500);
+      });
+      return () => window.removeEventListener('load', hideLoader);
     }
   }, []);
 
   return (
     <div className="App">
-      <NavBar />
-      <div className="finisher-header">
-        <Banner />
-        <Skills />
-        <Projects />
-        <Achievements />
+      {loading && (
+        <div className="loading-screen">
+          <div className="spinner"></div>
+          <h2>Loading...</h2>
+        </div>
+      )}
+      
+      <div className={loading ? "content hidden" : "content"}>
+        <NavBar />
+        <div className="finisher-header">
+          <Banner />
+          <Skills />
+          <Projects />
+          <Achievements />
+        </div>
+        <Contact />
+        <Footer />
       </div>
-      <Contact />
-      <Footer />
     </div>
   );
 }
