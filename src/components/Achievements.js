@@ -32,13 +32,13 @@ export const Achievements = () => {
     },
     { 
       title: "WGU Certificate: Front-End Developer", 
-      description: "Recipients of the Front-End Developer Certificate from Western Governors University have acquired proficiency in the creation of responsive, visually captivating, and fully functional websites. In particular, students have mastered sought-after skills, including Front End Design, JavaScript, Cascading Style Sheets (CSS), HyperText Markup Language (HTML), and Software Development.", 
+      description: "Earned from Western Governors University, this certificate validates proficiency in responsive web design, JavaScript, CSS, HTML, and front-end software development.", 
       year: "2024",
       imgUrl: projImg12
     },
     { 
       title: "WGU Certificate: Back-End Developer", 
-      description: "Recipients of the Back-End Developer Certificate from Western Governors University have acquired specific back-end software skills in Object-Oriented Programming (OOP), Java programming, structured query language (SQL), database management, software design patterns, Spring Framework, mySQL, and mobile application development.", 
+      description: "Awarded by WGU, this certificate demonstrates expertise in Java, OOP, SQL, database management, Spring Framework, and mobile app development.", 
       year: "2024",
       imgUrl: projImg13
     }
@@ -54,7 +54,7 @@ export const Achievements = () => {
     { 
       title: "Bachelor of Arts in Liberal Studies", 
       description: "California State University, Fresno", 
-      year: "2019",
+      year: "2012",
       imgUrl: projImg8 
     }
   ];

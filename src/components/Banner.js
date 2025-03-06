@@ -29,7 +29,7 @@ export const Banner = () => {
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn animate__slow" : ""}>
                   <span className="tagline">Welcome to my Portfolio</span>
-                  <h1>{`Hi! I'm Mark Loya`} <br />
+                  <h1>{`Mark Loya`} <br />
                     <span className="simple-fade-in">Software Engineer</span>
                   </h1>
 
@@ -51,8 +51,7 @@ export const Banner = () => {
                     </TrackVisibility>
                   </div>
 
-                  <p>I’m Mark Loya, a Software Engineer with a background in Java and full-stack development. Previously an educator for 10+ years, I bring strong problem-solving and adaptability to tech.</p>
-                  <p>Proficient in Java, Python, SQL, and front-end technologies like HTML, CSS, and JavaScript. Skilled in both front-end and back-end development, I’m passionate about building efficient, user-friendly software. Whether it’s web design, back-end systems, or full-stack development, I’m always learning, always coding—let’s connect!</p>
+                  <p>I'm Mark Loya, a Software Engineer with a background in Java and full-stack development. Former educator turned developer, I specialize in building efficient, user-friendly websites and applications.</p>
 
                   <button className="vvd">
                     <a href="#connect" style={{ textDecoration: 'none', color: 'inherit' }}>

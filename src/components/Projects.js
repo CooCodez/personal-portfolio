@@ -13,10 +13,11 @@ export const Projects = () => {
 
   const projects = [
     {
-      title: "Vacation Planner App",
+      title: "Vacation Planner",
       description: "Android app for scheduling and managing vacations and excursions. It features a CRUD-based database, Firebase authentication, and a clean UI with intuitive navigation. Built using Java, Room Database, and the Android Jetpack suite.",
       imgUrl: projImg1, 
       githubLink: "https://github.com/CooCodez/Vacation-Planner-App.git", 
+      apkLink: "https://appdistribution.firebase.dev/i/9323e0bb2691699b", 
     },
     {
       title: "Spring-Angular App",
@@ -25,26 +26,26 @@ export const Projects = () => {
       githubLink: "https://github.com/CooCodez/spring-angular-app",
     },
     {
-      title: "Elite Gaming PC Inventory Manager",
-      description: "Spring Boot web application with Thymeleaf UI for managing gaming PC parts and products. Features CRUD operations, inventory validation, and a 'Buy Now' button.",
+      title: "Inventory Manager",
+      description: "Spring Boot app with Thymeleaf UI for managing PC parts. Includes CRUD operations, inventory validation, and a 'Buy Now' button.",
       imgUrl: projImg3,
       githubLink: "https://github.com/CooCodez/Elite-Gaming-PC-Inventory-Manager", 
     },
     {
-      title: "California State Website",
-      description: "A state information website built using HTML, CSS, and JavaScript, implementing user-centered design, navigational schemes, and data storage capabilities.",
+      title: "California State",
+      description: "Informational state website built with HTML, CSS, and JavaScript, focusing on user experience and navigation.",
       imgUrl: projImg4, 
       liveLink: "http://mloya.atwebpages.com/",
     },
     {
-      title: "JavaScript & Angular Web App",
-      description: "Dynamic web application built using JavaScript and Angular. Implements API integrations, interactive UI components, and enhances functionality with modern web development practices.",
+      title: "Web App",
+      description: "JavaScript & Angular web app with API integrations and interactive UI components.",
       imgUrl: projImg5, 
       liveLink: "http://loyamaps.atwebpages.com/", 
     },
     {
       title: "React Portfolio Website",
-      description: "A modern, fully responsive portfolio website built with React, React-Bootstrap, and Animate.css. Showcases my projects, skills, and experience with smooth animations and a clean UI.",
+      description: "Modern, fully responsive portfolio built with React, React-Bootstrap, and Animate.css.",
       imgUrl: projImg6, 
       liveLink: "https://your-portfolio-link.com", 
     },

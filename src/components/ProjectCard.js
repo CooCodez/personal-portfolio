@@ -1,6 +1,6 @@
 import { Col } from "react-bootstrap";
 
-export const ProjectCard = ({ title, description, imgUrl, githubLink, liveLink }) => {
+export const ProjectCard = ({ title, description, imgUrl, githubLink, liveLink, apkLink }) => {
   return (
     <Col size={12} sm={6} md={4}>
       <div className="proj-imgbx">
@@ -21,6 +21,13 @@ export const ProjectCard = ({ title, description, imgUrl, githubLink, liveLink }
             {liveLink && (
               <a href={liveLink} target="_blank" rel="noopener noreferrer" className="btn project-btn">
                 Visit Live Site
+              </a>
+            )}
+
+            {/* APK Download Button */}
+            {apkLink && (
+              <a href={apkLink} target="_blank" rel="noopener noreferrer" className="btn project-btn apk-btn">
+                Download APK
               </a>
             )}
           </div>

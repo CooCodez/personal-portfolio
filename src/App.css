@@ -282,7 +282,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .banner {
   margin-top: 0;
-  padding: 260px 0 100px 0; /* Default for desktop */
+  padding: 260px 0 200px 0; /* Default for desktop */
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -317,8 +317,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
-  width: 96%;
+  margin: 14px auto 30px auto;
+  text-align: left;
+  width:90%;
 }
+
 .banner button {
   color: #fff;
   font-weight: 700;
@@ -417,7 +420,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   line-height: 1.5em;
   margin: 14px auto 75px auto; /* Centers text */
   max-width: 800px; /* Restricts width */
-  text-align: center; /* Ensures center alignment */
+  text-align: left; /* Ensures center alignment */
 }
 
 .skill-slider {
@@ -474,8 +477,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   letter-spacing: 0.8px;
   line-height: 1.5em;
   margin: 14px auto 30px auto;
-  text-align: center;
-  width:70%;
+  text-align: left;
+  width:90%;
 }
 /* Ensure the nav-pills container fills the width properly */
 .project .nav.nav-pills {
@@ -642,8 +645,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 60px 0 60px 0;
 }
 .contact img {
-  width: 92%;
+  width: 100%;
+  display: block;
+  margin: 0 auto; /* Centers the image */
 }
+
 .contact h2 {
 	font-size: 45px;
 	font-weight: 700;
@@ -752,6 +758,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   opacity: 0;
   width: 100%;
   color: white;
+  padding: 3px;
+}
+.cert-txtx p {
+  text-align: center; /* Centers the year text */
+  font-size: 1rem; /* Adjust size as needed */
+  font-weight: bold; /* Makes it stand out */
+  margin-top: 5px; /* Adds spacing from description */
+  display: block; /* Ensures it takes full width */
 }
 
 .cert-card:hover .cert-txtx {
@@ -798,6 +812,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   min-height: 100vh; /* or however tall you want */
   
 }
+
 
 
 
