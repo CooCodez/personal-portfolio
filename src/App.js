@@ -14,7 +14,10 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Wrap FinisherHeader in a function
+    const startTime = Date.now();
+    let loadingHidden = false;
+    let maxTimeoutId;
+
     const initFinisher = () => {
       new FinisherHeader({
         "count": 11,
@@ -46,24 +49,43 @@ function App() {
       });
     };
 
-    // Function to hide loading screen
     const hideLoader = () => {
-      setLoading(false);
+      if (!loadingHidden) {
+        loadingHidden = true;
+        setLoading(false);
+      }
     };
 
-    // If the page is already fully loaded, init Finisher and hide loader immediately
-    if (document.readyState === 'complete') {
-      initFinisher();
+    // Poll for the canvas element added by FinisherHeader
+    const checkFinisherLoaded = () => {
+      // Stop polling if already hidden
+      if (loadingHidden) return;
+      
+      const canvas = document.querySelector('.finisher-header canvas');
+      if (canvas) {
+        const elapsed = Date.now() - startTime;
+        // Enforce a minimum of 500ms display
+        if (elapsed < 500) {
+          setTimeout(hideLoader, 500 - elapsed);
+        } else {
+          hideLoader();
+        }
+      } else {
+        requestAnimationFrame(checkFinisherLoaded);
+      }
+    };
+
+    // Maximum: hide loader after 2000ms even if canvas isn't detected
+    maxTimeoutId = setTimeout(() => {
       hideLoader();
-    } else {
-      // Otherwise, wait for the load event
-      window.addEventListener('load', () => {
-        initFinisher();
-        // Add a small delay to ensure smooth transition
-        setTimeout(hideLoader, 500);
-      });
-      return () => window.removeEventListener('load', hideLoader);
-    }
+    }, 2000);
+
+    initFinisher();
+    checkFinisherLoaded();
+
+    return () => {
+      clearTimeout(maxTimeoutId);
+    };
   }, []);
 
   return (
